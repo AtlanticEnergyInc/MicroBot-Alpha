@@ -1,3 +1,12 @@
-pip install -r requirements.txt
-OAUTH2_CLIENT_ID=358403251424722945 OAUTH2_CLIENT_SECRET=Y0S-nvI5Cxqhd80VVm5RNmRVQULZJBwD python app.py
-open http://localhost:5000
+from worker_bot import WorkerBot
+from plugins.printer import Printer
+from plugins.welcome import Welcome
+from plugins.indexer import Indexer
+from plugins.search import Search
+from plugins.levels import Levels
+
+import os
+
+bot = WorkerBot()
+bot.load_plugin(Indexer, Search, Levels)
+bot.run()
